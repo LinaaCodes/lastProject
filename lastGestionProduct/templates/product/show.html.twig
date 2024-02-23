@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('app_product_index') }}" class="back">
+    <i class="fa-solid fa-left-long"></i>
+    </a>
+
+    <h1>Détail du produit</h1>
+
+    <div class="showContainer">
+        
+        <img src="{{ product.urlimg }}" class="showImg">
+
+        <div class="showInfo">
+        <p>Price : {{ product.price }}</p>           
+        <p>Decription : {{ product.decript }}</p>
+        </div>
+                
+                
+            
+        
+    </div>
+
+    
+    <div class="showOpt"> 
+    <button class="updateBtn">
+    <a href="{{ path('app_product_edit', {'id': product.id}) }}">
+    <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    </a>
+
+    {{ include('product/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

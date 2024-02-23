@@ -1,0 +1,20 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+
+{{form_start(form)}}
+
+    {{form_label(form.price, 'prix : ')}}
+    {{form_widget(form.price)}}
+
+    {{form_label(form.decript, 'description : ')}}
+    {{form_widget(form.decript)}}
+
+    {{form_label(form.urlimg, "URL de l'image :")}}
+    {{form_widget(form.urlimg)}}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{form_end(form)}}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>LISTE DES PRODUITS</h1>
+
+
+<a href="{{ path('app_product_new') }}" class="addBtn">
+<i class="fa-solid fa-plus"></i>
+</a>
+
+
+
+    <div class="productContainer">
+        
+        {% for product in products %}
+            <div class="productDiv">
+                
+                <img src="{{ product.urlimg }}" class="productImg">
+                <p>{{ product.decript }}</p>
+                <p>{{ product.price }} €</p>
+
+                <div class="productOpt">
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}" class="eye">
+                    <i class="fa-solid fa-eye"></i>
+                    </a>
+
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}" class="gear">
+                    <i class="fa-solid fa-gear"></i>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div>
+                <p colspan="5">no records found</p>
+            </div>
+            
+        {% endfor %}
+        
+    </div>
+
+    
+{% endblock %}
